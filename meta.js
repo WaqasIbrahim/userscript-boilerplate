@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Userscript Boilerplate
 // @namespace       https://example.com/userscript-boilerplate
-// @version         1.0
+// @version         1.0.0
 // @author          Waqas Ibrahim
 // @description     A userscript boilerplate with ES6 support using Babel
 // @homepage        https://example.com/

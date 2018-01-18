@@ -1,0 +1,25 @@
+stages:
+  - build
+  - publish
+build:
+  stage: build
+  image: node:6
+  only:
+    - tags
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 30 minutes
+  before_script:
+    - npm install -g gulp-cli
+    - npm install
+  script: npm run build
+publish:
+  image: inetprocess/gitlab-release
+  stage: publish
+  only:
+    - tags
+  dependencies:
+    - build
+  script:
+    - gitlab-release --message 'Release message' dist/userscript-boilerplate.user.js
