@@ -22,4 +22,4 @@ publish:
   dependencies:
     - build
   script:
-    - gitlab-release --message 'Release message' dist/userscript-boilerplate.user.js
+    - gitlab-release --message 'Release message' dist/userscript-boilerplate.user.js.zip

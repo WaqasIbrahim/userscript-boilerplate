@@ -3,6 +3,8 @@ const path = require('path');
 const meta = require('fs').readFileSync('./meta.js', 'utf-8');
 const name = require('./package.json').name;
 
+const ZipPlugin = require('zip-webpack-plugin');
+
 module.exports = env => {
 	const plugins = [
 		new webpack.BannerPlugin({
@@ -16,6 +18,12 @@ module.exports = env => {
 		plugins.unshift(
 			new webpack.optimize.UglifyJsPlugin({
 				cache: true
+			})
+		);
+
+		plugins.push(
+			new ZipPlugin({
+				include: [/\.js$/]
 			})
 		);
 	}
