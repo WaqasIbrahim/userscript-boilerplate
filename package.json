@@ -24,6 +24,7 @@
 		"eslint": "^4.8.0",
 		"eslint-plugin-json": "^1.2.0",
 		"webpack": "^3.6.0",
+		"webpack-obfuscator": "^0.13.0",
 		"zip-webpack-plugin": "^2.1.0"
 	}
 }

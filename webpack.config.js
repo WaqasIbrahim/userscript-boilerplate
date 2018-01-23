@@ -4,6 +4,7 @@ const meta = require('fs').readFileSync('./meta.js', 'utf-8');
 const name = require('./package.json').name;
 
 const ZipPlugin = require('zip-webpack-plugin');
+const ObfuscatorPlugin = require('webpack-obfuscator');
 
 module.exports = env => {
 	const plugins = [
@@ -18,6 +19,17 @@ module.exports = env => {
 		plugins.unshift(
 			new webpack.optimize.UglifyJsPlugin({
 				cache: true
+			})
+		);
+
+		plugins.unshift(
+			new ObfuscatorPlugin({
+				compact: true,
+				disableConsoleOutput: true,
+				rotateStringArray: true,
+				stringArray: true,
+				stringArrayThreshold: 0.75,
+				unicodeEscapeSequence: true
 			})
 		);
 
